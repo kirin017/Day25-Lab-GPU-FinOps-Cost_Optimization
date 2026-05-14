@@ -19,7 +19,7 @@ LOCAL (Docker Compose)                  REMOTE (Kaggle/Colab)
 Chọn guide theo hệ điều hành:
 
 - **macOS** → [`QUICKSTART-MAC.md`](QUICKSTART-MAC.md)
-- **Windows (WSL)** → [`QUICKSTART-WINDOWS.md`](QUICKSTART-WINDOWS.md)
+- **Windows (PowerShell hoặc WSL)** → [`QUICKSTART-WINDOWS.md`](QUICKSTART-WINDOWS.md)
 - **Linux** → [`QUICKSTART-LINUX.md`](QUICKSTART-LINUX.md)
 
 ### Prerequisites (Yêu cầu trước khi bắt đầu)

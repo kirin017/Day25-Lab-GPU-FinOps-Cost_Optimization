@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # Mock GPU Node Manager - simulates multi-node GPU cluster
   gpu-node-manager:

@@ -1,4 +1,4 @@
-# Quick Start - Windows (WSL)
+# Quick Start - Windows
 
 > Dùng hệ điều hành khác? Xem [`QUICKSTART-MAC.md`](QUICKSTART-MAC.md) (macOS) hoặc [`QUICKSTART-LINUX.md`](QUICKSTART-LINUX.md) (Linux).
 
@@ -13,6 +13,51 @@
 | Python packages local | **Không cần** — notebook tự cài `requests`, `pandas`, `matplotlib`, `plotly`, `torch`, `torchvision`, `pynvml` trên Kaggle/Colab | Không cần |
 
 > **Lưu ý:** `cloudflared` (tunnel) **miễn phí, không cần đăng ký tài khoản**.
+
+## Cách nhanh nhất: chạy trực tiếp bằng PowerShell
+
+Nếu Docker Desktop đã chạy, có thể dùng script native Windows ngay trong thư mục project:
+
+```powershell
+cd D:\Day24\Day25-Lab-GPU-FinOps-Cost_Optimization
+powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 start
+powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 test
+```
+
+Mở tunnel để Kaggle/Colab truy cập gateway:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 tunnel
+```
+
+Script sẽ in ra URL dạng `https://...trycloudflare.com`; copy URL đó vào notebook:
+
+```python
+GATEWAY_URL = "https://...trycloudflare.com"
+```
+
+Các lệnh PowerShell hữu ích:
+
+| Lệnh | Mô tả |
+|-------|------|
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 start` | Build và chạy toàn bộ Docker services |
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 tunnel` | Mở tunnel qua `cloudflared` hoặc `ngrok` |
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 test` | Test nhanh các endpoint chính |
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 status` | Xem trạng thái services và tunnel |
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 logs gateway` | Xem log service gateway |
+| `powershell -ExecutionPolicy Bypass -File .\run-windows.ps1 stop` | Tắt services và tunnel |
+
+Nếu chưa có tunnel tool, cài một trong hai:
+
+```powershell
+winget install --id Cloudflare.cloudflared
+# hoặc
+winget install --id Ngrok.Ngrok
+```
+
+---
+
+## Cách thay thế: chạy trong WSL2
 
 ## Tổng quan các bước
 
